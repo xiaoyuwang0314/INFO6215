@@ -183,13 +183,16 @@ The risk is that hosts with messages leave instead of paying. The MVP measures t
 
 ### MVP prototype
 
-![Renter view: search results and listing with free preview and "Unlock for $29"](../04-mvp_due-10-22/mockup-renter.png)
-
-*Renter view: search by city and dates, free preview with one cover photo and the verified badge, "Unlock for $29" for full details and chat.*
-
-![Host view: room verification checklist and "You have 3 messages. Join to reply"](../04-mvp_due-10-22/mockup-host.png)
-
-*Host view: verification status, waiting messages with "Join to reply · $29 / year", and the host's own search in the other city.*
+<table>
+  <tr>
+    <td width="50%" align="center" valign="top"><img src="../04-mvp_due-10-22/mockup-renter.png" width="180" alt="Renter view: search results and listing with free preview and Unlock for $29"></td>
+    <td width="50%" align="center" valign="top"><img src="../04-mvp_due-10-22/mockup-host.png" width="180" alt="Host view: room verification checklist and You have 3 messages, Join to reply"></td>
+  </tr>
+  <tr>
+    <td valign="top"><b>Renter view.</b> Search by city and dates, free preview with one cover photo and the verified badge, "Unlock for $29" for full details and chat.</td>
+    <td valign="top"><b>Host view.</b> Verification status, waiting messages with "Join to reply · $29 / year", and the host's own search in the other city.</td>
+  </tr>
+</table>
 
 ---
 
