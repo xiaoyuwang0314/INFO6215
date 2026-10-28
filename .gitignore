@@ -1,0 +1,8 @@
+# Copyrighted or instructor materials, kept local
+The Lean Startup - Erick Ries.pdf
+slides/
+
+# Local files
+.DS_Store
+.claude/settings.local.json
+assignments/midterm/06-presentation_due-10-30/presentation-draft.md

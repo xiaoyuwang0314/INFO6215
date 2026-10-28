@@ -1,0 +1,227 @@
+<title>SummerNest Product Articulation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: two stacked 16:9 slides that scale with width. Same minimal language as the pitch slide: serif names, hairline rules, one blue accent. */
+:root {
+  --page: #e9eae7;
+  --page-fg: #1b1d1c;
+  --muted: #666b68;
+  --btn-bg: #1b1d1c;
+  --btn-fg: #f5f5f3;
+
+  --slide: #fafaf8;
+  --ink: #161817;
+  --soft: #6f7571;
+  --rule: #d3d6d2;
+  --accent: #2d6e9e;
+  --tint: #e8f0f6;
+
+  --f-display: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --f-body: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #141615; --page-fg: #e6e8e6; --muted: #9ba19d;
+    --btn-bg: #e6e8e6; --btn-fg: #141615; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #141615; --page-fg: #e6e8e6; --muted: #9ba19d;
+  --btn-bg: #e6e8e6; --btn-fg: #141615; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--page); color: var(--page-fg); font-family: var(--f-body);
+  padding-block: 28px 56px; padding-inline: 16px;
+}
+.bar {
+  max-width: 1100px; margin: 0 auto 20px;
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+}
+.bar h1 { font-size: 15px; font-weight: 600; margin: 0; }
+.bar p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.btn {
+  font: 600 14px var(--f-body); border: 0; border-radius: 999px;
+  padding: 10px 18px; background: var(--btn-bg); color: var(--btn-fg); cursor: pointer;
+}
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.deck { max-width: 1100px; margin: 0 auto; display: grid; gap: 28px; }
+.frame { display: grid; gap: 8px; }
+.cap { font-size: 12px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+
+.slide {
+  position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9;
+  container-type: inline-size; overflow: hidden;
+  background: var(--slide); color: var(--ink);
+}
+.inner { position: absolute; inset: 0; padding: 4.6cqw 6cqw 4cqw; display: flex; flex-direction: column; }
+.topline { display: flex; justify-content: space-between; gap: 2cqw; }
+.kicker { font-size: 1.05cqw; letter-spacing: .22em; text-transform: uppercase; color: var(--soft); margin: 0; }
+.title { font-family: var(--f-display); font-weight: 700; font-size: 3.6cqw; line-height: 1.05; margin: .8cqw 0 0; }
+.title span { color: var(--accent); }
+.lede { font-size: 1.6cqw; margin: 1cqw 0 0; color: var(--ink); }
+.credit {
+  position: absolute; left: 50%; bottom: 1.8cqw; transform: translateX(-50%);
+  font-size: .95cqw; letter-spacing: .04em; color: var(--soft); white-space: nowrap;
+}
+
+/* Slide 1: segments grid */
+.seg {
+  margin-top: 3cqw; display: grid; grid-template-columns: 8cqw 1fr 1fr;
+  column-gap: 3cqw; row-gap: 0; flex: 1; align-content: start;
+}
+.seg > div { padding: 1.15cqw 0; border-top: 1px solid var(--rule); min-width: 0; }
+.seg .head { border-top: 0; padding-top: 0; }
+.seg .head b { display: block; font-family: var(--f-display); font-weight: 600; font-size: 2cqw; line-height: 1.1; }
+.seg .head small { display: block; font-size: 1.15cqw; color: var(--soft); margin-top: .4cqw; }
+.seg .lbl { font-size: 1cqw; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); padding-top: 1.45cqw; }
+.seg ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .35cqw; }
+.seg li, .seg p { font-size: 1.4cqw; line-height: 1.35; margin: 0; }
+.seg li::before { content: "·"; color: var(--soft); margin-right: .7cqw; }
+.seg .vp { font-family: var(--f-display); font-weight: 600; font-size: 1.6cqw; line-height: 1.25; }
+.seg .vp-cell { background: var(--tint); padding-inline: 1.2cqw; border-top-color: transparent; }
+.seg .vp-lbl { border-top-color: transparent; }
+.col-b { position: relative; }
+.col-b::before {
+  content: ""; position: absolute; left: -1.5cqw; top: 0; bottom: 0; width: 1px; background: var(--rule);
+}
+
+/* Slide 2: competition table */
+.cmp { margin-top: 3.2cqw; width: 100%; border-collapse: collapse; font-size: 1.45cqw; }
+.cmp th, .cmp td { padding: 1.25cqw 1cqw; text-align: center; border-bottom: 1px solid var(--rule); }
+.cmp thead th {
+  font-size: 1cqw; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--soft);
+  vertical-align: bottom; line-height: 1.3;
+}
+.cmp th[scope="row"] { text-align: left; font-weight: 500; padding-left: 0; }
+.cmp td { font-size: 1.7cqw; }
+.y { color: var(--ink); }
+.p { color: var(--soft); }
+.n { color: #b9bdb9; }
+.cmp tr.us th, .cmp tr.us td { background: var(--tint); border-bottom: 0; }
+.cmp tr.us th { font-family: var(--f-display); font-size: 1.7cqw; font-weight: 700; color: var(--accent); padding-left: 1.2cqw; }
+.cmp tr.us .y { color: var(--accent); }
+.legend { margin: 1.4cqw 0 0; font-size: 1.05cqw; color: var(--soft); }
+.position { margin: auto 0 1.6cqw; font-family: var(--f-display); font-weight: 600; font-size: 2.1cqw; line-height: 1.2; }
+.position span { color: var(--accent); }
+
+body.presenting { padding: 0; background: #000; overflow: hidden; height: 100vh; }
+body.presenting .bar, body.presenting .cap { display: none; }
+body.presenting .deck { max-width: none; height: 100vh; display: grid; place-items: center; }
+body.presenting .frame { display: none; }
+body.presenting .frame.on { display: block; width: min(100vw, 177.78vh); }
+</style>
+
+<header class="bar">
+  <div>
+    <h1>Product Articulation · due Oct 8</h1>
+    <p>2 slides. Present: arrow keys or click to move, Esc to exit.</p>
+  </div>
+  <button class="btn" id="present" type="button">Present</button>
+</header>
+
+<main class="deck" id="deck">
+
+  <div class="frame">
+    <div class="cap">Slide 1 of 2</div>
+    <section class="slide" aria-label="Customer segments and value propositions">
+      <div class="inner">
+        <div class="topline"><p class="kicker">SummerNest · Product Articulation</p><p class="kicker">Xiaoyu Wang &amp; Aurora Ouyang</p></div>
+        <h2 class="title">Summer<span>Nest</span></h2>
+        <p class="lede">A verified sublet marketplace for students who move to another city for an internship.</p>
+
+        <div class="seg">
+          <div class="head"></div>
+          <div class="head"><b>Interns moving to a new city</b><small>Need a room</small></div>
+          <div class="head col-b"><b>Students leaving for the summer</b><small>Have a room</small></div>
+
+          <div class="lbl">Job</div>
+          <div><p>A room near my internship, for exactly my dates</p></div>
+          <div class="col-b"><p>Cover my rent while I'm away</p></div>
+
+          <div class="lbl">Pains</div>
+          <div><ul><li>Scams and fake listings</li><li>Can't see it before paying</li><li>Dates rarely match</li></ul></div>
+          <div class="col-b"><ul><li>Paying rent on an empty room</li><li>Endless messages, no-shows</li><li>No idea who moves in</li></ul></div>
+
+          <div class="lbl">Gains</div>
+          <div><ul><li>A verified, real person</li><li>Exact dates</li><li>Furnished, near work</li></ul></div>
+          <div class="col-b"><ul><li>Room filled all summer</li><li>Someone I can trust</li><li>Quick decision</li></ul></div>
+
+          <div class="lbl vp-lbl">Value</div>
+          <div class="vp-cell"><p class="vp">Verified rooms that match your dates, from anywhere.</p></div>
+          <div class="vp-cell col-b"><p class="vp">Fill your room with a verified intern whose dates match.</p></div>
+        </div>
+      </div>
+      <div class="credit">Slides made by Claude Opus 5.5</div>
+    </section>
+  </div>
+
+  <div class="frame">
+    <div class="cap">Slide 2 of 2</div>
+    <section class="slide" aria-label="Competition">
+      <div class="inner">
+        <div class="topline"><p class="kicker">SummerNest · Product Articulation</p><p class="kicker">Xiaoyu Wang &amp; Aurora Ouyang</p></div>
+        <h2 class="title">Competition</h2>
+
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Verified<br>identity</th>
+              <th scope="col">Exact<br>dates</th>
+              <th scope="col">Built for<br>2 to 4 months</th>
+              <th scope="col">Low<br>scam risk</th>
+              <th scope="col">Low<br>cost</th>
+              <th scope="col">English &amp;<br>international</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Facebook groups</th><td class="n">✕</td><td class="n">✕</td><td class="n">✕</td><td class="n">✕</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><th scope="row">Craigslist</th><td class="n">✕</td><td class="n">✕</td><td class="n">✕</td><td class="n">✕</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><th scope="row">RedNote</th><td class="n">✕</td><td class="n">✕</td><td class="n">✕</td><td class="p">~</td><td class="y">✓</td><td class="p">~</td></tr>
+            <tr><th scope="row">Airbnb (monthly)</th><td class="y">✓</td><td class="y">✓</td><td class="n">✕</td><td class="y">✓</td><td class="n">✕</td><td class="y">✓</td></tr>
+            <tr class="us"><th scope="row">SummerNest</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="p">~</td><td class="y">✓</td></tr>
+          </tbody>
+        </table>
+        <p class="legend">✓ yes &nbsp;&nbsp; ~ partly &nbsp;&nbsp; ✕ no</p>
+
+        <p class="position">Verified like Airbnb, <span>priced close to free groups</span>, built for interns.</p>
+      </div>
+      <div class="credit">Slides made by Claude Opus 5.5</div>
+    </section>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.frame'));
+  var body = document.body, i = 0, on = false;
+  function show(n) {
+    i = Math.max(0, Math.min(frames.length - 1, n));
+    frames.forEach(function (f, k) { f.classList.toggle('on', k === i); });
+  }
+  function stop() {
+    on = false; body.classList.remove('presenting');
+    frames.forEach(function (f) { f.classList.remove('on'); });
+    if (document.fullscreenElement && document.exitFullscreen) { document.exitFullscreen().catch(function () {}); }
+  }
+  document.getElementById('present').addEventListener('click', function () {
+    on = true; body.classList.add('presenting'); show(0);
+    var el = document.documentElement;
+    if (el.requestFullscreen) { el.requestFullscreen().catch(function () {}); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!on) return;
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'Escape') { stop(); }
+  });
+  document.getElementById('deck').addEventListener('click', function () { if (on) show(i + 1); });
+  document.addEventListener('fullscreenchange', function () { if (on && !document.fullscreenElement) stop(); });
+})();
+</script>

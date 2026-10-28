@@ -1,0 +1,144 @@
+<title>Wellwish & SummerNest Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: one 16:9 slide, split in half by a single hairline. Each half holds one idea: name, one line, one tagline. */
+:root {
+  --page: #e9eae7;
+  --page-fg: #1b1d1c;
+  --muted: #666b68;
+  --btn-bg: #1b1d1c;
+  --btn-fg: #f5f5f3;
+
+  --slide: #fafaf8;
+  --ink: #161817;
+  --soft: #7a807c;
+  --rule: #c9ccc8;
+  --sw: #b0564b;
+  --sn: #2d6e9e;
+
+  --f-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --f-body: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #141615; --page-fg: #e6e8e6; --muted: #9ba19d;
+    --btn-bg: #e6e8e6; --btn-fg: #141615; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #141615; --page-fg: #e6e8e6; --muted: #9ba19d;
+  --btn-bg: #e6e8e6; --btn-fg: #141615; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--page);
+  color: var(--page-fg);
+  font-family: var(--f-body);
+  padding-block: 28px 56px;
+  padding-inline: 16px;
+}
+.bar {
+  max-width: 1100px; margin: 0 auto 20px;
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+}
+.bar h1 { font-size: 15px; font-weight: 600; margin: 0; }
+.bar p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.btn {
+  font: 600 14px var(--f-body); border: 0; border-radius: 999px;
+  padding: 10px 18px; background: var(--btn-bg); color: var(--btn-fg); cursor: pointer;
+}
+.btn:focus-visible { outline: 3px solid var(--sn); outline-offset: 2px; }
+
+.stage { max-width: 1100px; margin: 0 auto; }
+.slide {
+  position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9;
+  container-type: inline-size; overflow: hidden;
+  background: var(--slide); color: var(--ink);
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.slide::after {
+  content: ""; position: absolute; left: 50%; top: 14%; bottom: 14%;
+  width: 1px; background: var(--rule);
+}
+.half {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 7cqw; min-width: 0;
+}
+.name {
+  font-family: var(--f-display); font-weight: 400;
+  font-size: 7.4cqw; line-height: 1; letter-spacing: -.01em; margin: 0;
+}
+.sw .name span { color: var(--sw); }
+.sn .name span { color: var(--sn); }
+.what { font-size: 2.1cqw; line-height: 1.35; margin: 2.4cqw 0 0; color: var(--ink); font-weight: 500; text-wrap: pretty; }
+.pts { list-style: none; margin: 3.6cqw 0 0; padding: 0; display: grid; gap: 1.6cqw; }
+.pts li { display: grid; grid-template-columns: 8.5cqw 1fr; gap: 1.4cqw; align-items: baseline; }
+.pts b {
+  font-size: 1.1cqw; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+}
+.sw .pts b { color: var(--sw); }
+.sn .pts b { color: var(--sn); }
+.pts span { font-size: 1.6cqw; line-height: 1.4; color: var(--ink); }
+.place {
+  position: absolute; left: 50%; bottom: 5.5cqw; transform: translateX(-50%);
+  font-size: 1.1cqw; letter-spacing: .04em; color: var(--soft); white-space: nowrap;
+  background: var(--slide); padding: 0 1.4cqw;
+}
+
+body.presenting { padding: 0; background: #000; overflow: hidden; height: 100vh; }
+body.presenting .bar { display: none; }
+body.presenting .stage { max-width: none; height: 100vh; display: grid; place-items: center; }
+body.presenting .slide { width: min(100vw, 177.78vh); }
+</style>
+
+<header class="bar">
+  <div>
+    <h1>Pitch slide · Oct 2</h1>
+    <p>Press Present for full screen. Esc to exit.</p>
+  </div>
+  <button class="btn" id="present" type="button">Present</button>
+</header>
+
+<main class="stage">
+  <section class="slide" aria-label="Wellwish and SummerNest">
+    <div class="half sw">
+      <h2 class="name">Well<span>wish</span></h2>
+      <p class="what">We pick the right birthday gift for each person in your life, add a handwritten card, and deliver it on the day.</p>
+      <ul class="pts">
+        <li><b>Customer</b><span>High-net-worth individuals</span></li>
+        <li><b>Value</b><span>Feels personal, zero effort</span></li>
+        <li><b>Revenue</b><span>Per-gift fee</span></li>
+      </ul>
+    </div>
+    <div class="half sn">
+      <h2 class="name">Summer<span>Nest</span></h2>
+      <p class="what">We help interns moving to a new city find a summer sublet from students who are away.</p>
+      <ul class="pts">
+        <li><b>Customer</b><span>Summer interns and students</span></li>
+        <li><b>Value</b><span>Verified, date-matched sublets</span></li>
+        <li><b>Revenue</b><span>Paid membership</span></li>
+      </ul>
+    </div>
+    <div class="place">Slide made by Claude Opus 5.5</div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var body = document.body;
+  function stop() {
+    body.classList.remove('presenting');
+    if (document.fullscreenElement && document.exitFullscreen) { document.exitFullscreen().catch(function () {}); }
+  }
+  document.getElementById('present').addEventListener('click', function () {
+    body.classList.add('presenting');
+    var el = document.documentElement;
+    if (el.requestFullscreen) { el.requestFullscreen().catch(function () {}); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') stop(); });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement) body.classList.remove('presenting'); });
+})();
+</script>
